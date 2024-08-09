@@ -1,28 +1,11 @@
-import logo from './logo.svg';
-import { Button } from './components';
+import FormComponent from './components/organisms/Form/Form';
 
-import './App.css';
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Button onClick={() => {}}>Submit</Button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="max-w-md mx-auto mt-10">
+      <FormComponent />
     </div>
   );
-}
+};
 
 export default App;
