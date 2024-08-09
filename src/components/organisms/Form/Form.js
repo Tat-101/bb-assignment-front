@@ -1,22 +1,15 @@
 import { Formik, Form } from 'formik';
 import { useForm } from '../../../hooks/useForm';
 import { Button, Input } from '../../atoms';
-import { useUser } from '../../../context/UserContext';
 
 const FormComponent = () => {
   const { initialValues, validationSchema, handleSubmit } = useForm();
-  const { updateUser } = useUser();
-
-  const handleUserFormSubmit = (values, formikHelpers) => {
-    updateUser(values);
-    handleSubmit(values, formikHelpers);
-  };
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={handleUserFormSubmit}
+      onSubmit={handleSubmit}
     >
       {({ isSubmitting }) => (
         <Form className="space-y-4">

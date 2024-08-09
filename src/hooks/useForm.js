@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
-import { createUser } from '../services/api';
+import { createUser } from '../services/userService';
 
 export const useForm = () => {
   // Validation schema using Yup

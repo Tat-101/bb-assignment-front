@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fetchUsers } from '../../../services/api';
+import { fetchUsers } from '../../../services/userService';
 import { Loading } from '../../atoms';
 
 const List = () => {
