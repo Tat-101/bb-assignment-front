@@ -1,4 +1,6 @@
+import { toast } from 'react-toastify';
 import * as Yup from 'yup';
+import { createUser } from '../services/api';
 
 export const useForm = () => {
   // Validation schema using Yup
@@ -22,9 +24,18 @@ export const useForm = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (values, { setSubmitting }) => {
-    console.log('Form Data:', values);
-    setSubmitting(false);
+  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+    try {
+      console.log('Form Data:', values);
+      await createUser(values);
+
+      toast.success('Form submitted successfully!'); // Display success toast
+      resetForm();
+    } catch (error) {
+      toast.error('Failed to create user');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return {
