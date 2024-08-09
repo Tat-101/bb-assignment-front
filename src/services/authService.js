@@ -9,8 +9,3 @@ export const authenticate = async (username, password) => {
     throw new Error('Invalid credentials');
   }
 };
-
-export const checkAuth = () => {
-  const token = localStorage.getItem('authToken');
-  return !!token;
-};

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { fetchUsers } from '../../../services/userService';
 import { Loading } from '../../atoms';
+import React from 'react';
 
 const List = () => {
   const [users, setUsers] = useState([]);

@@ -13,8 +13,7 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended",
-    "plugin:react/jsx-runtime"
+    "plugin:prettier/recommended"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -25,7 +24,7 @@
   },
   "plugins": ["react"],
   "rules": {
-    "no-unused-vars": "warn",
+    "no-unused-vars": ["warn", { "varsIgnorePattern": "React" }],
     "prettier/prettier": [
       "error",
       {

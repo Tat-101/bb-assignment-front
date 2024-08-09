@@ -1,4 +1,5 @@
-const API_BASE_URL = 'https://api.example.com';
+// TODO: env
+const API_BASE_URL = 'http://localhost:3001';
 
 // Function to fetch user list
 export const fetchUsers = async () => {
