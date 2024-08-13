@@ -1,10 +1,15 @@
-// TODO: env
-const API_BASE_URL = 'http://localhost:3001';
+export const API_BASE_URL = process.env.REACT_APP_API_URL;
 
-// Function to fetch user list
 export const fetchUsers = async () => {
+  const token = localStorage.getItem('authToken');
   try {
-    const response = await fetch(`${API_BASE_URL}/users`);
+    const response = await fetch(`${API_BASE_URL}/users`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      },
+    });
     if (!response.ok) {
       throw new Error('Failed to fetch users');
     }
@@ -15,13 +20,14 @@ export const fetchUsers = async () => {
   }
 };
 
-// Function to create a new user
 export const createUser = async (userData) => {
+  const token = localStorage.getItem('authToken');
   try {
     const response = await fetch(`${API_BASE_URL}/users`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: token,
       },
       body: JSON.stringify(userData),
     });

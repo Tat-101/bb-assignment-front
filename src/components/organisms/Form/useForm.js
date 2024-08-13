@@ -1,8 +1,11 @@
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 import { createUser } from '../../../services/userService';
+import { useUser } from '../../../context/UserContext';
 
 export const useForm = () => {
+  const { loadUsers } = useUser();
+
   // Validation schema using Yup
   const validationSchema = Yup.object({
     name: Yup.string()
@@ -27,8 +30,8 @@ export const useForm = () => {
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       console.log('Form Data:', values);
-      // TODO: createUser
       await createUser(values);
+      loadUsers();
 
       toast.success('Form submitted successfully!'); // Display success toast
       resetForm();
