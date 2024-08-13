@@ -1,0 +1,44 @@
+services:
+  bb-front:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '3001:3001'
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      REACT_APP_API_URL: http://localhost:3000
+
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: bb-assignment
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+  bb-back:
+    build:
+      context: ../bb-assignment-back
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: postgres
+      DB_PASSWORD: password
+      DB_NAME: bb-assignment
+      DB_PORT: 5432
+      JWT_SECRET: my_secret_key
+
+volumes:
+  postgres_data:
