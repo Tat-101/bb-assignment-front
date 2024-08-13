@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/github/Tat-101/bb-assignment-front/branch/main/graph/badge.svg?token=63WH3TP4F0)](https://codecov.io/github/Tat-101/bb-assignment-front)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
