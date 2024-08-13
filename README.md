@@ -1,8 +1,8 @@
 [![codecov](https://codecov.io/github/Tat-101/bb-assignment-front/branch/main/graph/badge.svg?token=63WH3TP4F0)](https://codecov.io/github/Tat-101/bb-assignment-front)
 
-# BB Assignment - Frontend Application
+# BB Assignment - User Management Frontend Application
 
-This repository contains the frontend application for the "BB Assignment". This project is built using React and is designed to provide a user interface for interacting with the backend services.
+This repository contains the frontend application for the "BB Assignment". This project is built using React and is designed to provide a user interface for managing users. The application allows users to be added, removed, and deleted, with role-based access control and authentication mechanisms.
 
 ## Table of Contents
 
@@ -14,7 +14,7 @@ This repository contains the frontend application for the "BB Assignment". This 
 
 ## Overview
 
-The "BB Assignment" frontend application is part of a larger project that also includes a backend service. This app serves as the user interface for end-users to interact with the backend, enabling various features as defined by the project requirements.
+The "BB Assignment" frontend application is part of a larger user management system. This app allows administrators to manage users, including adding, removing, and deleting users. It supports role-based access control, ensuring that only authorized users can perform certain actions. The app also includes authentication features to secure user data.
 
 ## Installation
 
