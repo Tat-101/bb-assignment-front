@@ -4,6 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { toast } from 'react-toastify';
 import { createUser } from '../../../../services/userService';
 import FormComponent from '../Form';
+import { useUser } from '../../../../context/UserContext';
 
 // Mock the necessary modules
 jest.mock('../../../../services/userService');
@@ -13,9 +14,13 @@ jest.mock('react-toastify', () => ({
     error: jest.fn(),
   },
 }));
+jest.mock('../../../../context/UserContext');
 
 describe('FormComponent Integration Test', () => {
   beforeEach(() => {
+    useUser.mockReturnValue({
+      loadUsers: jest.fn(),
+    });
     jest.clearAllMocks();
   });
 
