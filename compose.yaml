@@ -26,10 +26,12 @@ services:
   bb-back:
     build:
       context: ../bb-assignment-back
+      dockerfile: Dockerfile.dev
     ports:
       - '3000:3000'
     volumes:
-      - .:/app
+      - ../bb-assignment-back:/app
+      - /app/tmp # Temp directory to store the binary
     depends_on:
       - db
     environment:
