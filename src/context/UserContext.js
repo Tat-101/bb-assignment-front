@@ -27,11 +27,12 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  const deleteUser = async (id) => {
+  const deleteUser = async (id, calback = () => {}) => {
     try {
       await delUser(id);
       loadUsers({ showLoading: false });
       toast.success('Delete user success!');
+      calback?.();
     } catch (error) {
       toast.error(error.message);
     }

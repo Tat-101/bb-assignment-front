@@ -12,8 +12,9 @@ const List = () => {
   };
 
   const confirmDelete = async () => {
-    await deleteUser(selectedUser.id);
-    setSelectedUser(null);
+    await deleteUser(selectedUser.id, () => {
+      setSelectedUser(null);
+    });
   };
 
   if (isLoading) {
