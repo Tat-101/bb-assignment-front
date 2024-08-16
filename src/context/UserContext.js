@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { fetchUsers } from '../services/userService';
+import { deleteUser as delUser, fetchUsers } from '../services/userService';
+import { toast } from 'react-toastify';
 
 const UserContext = createContext();
 
@@ -11,7 +12,7 @@ export const UserProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const loadUsers = async () => {
+  const loadUsers = async ({ showLoading = true } = {}) => {
     try {
       const userData = await fetchUsers();
       // const userData = [
@@ -19,10 +20,20 @@ export const UserProvider = ({ children }) => {
       //   { id: '2', name: 'kim', email: 'kim@gmail.com' },
       // ];
       setUsers(userData);
-      setIsLoading(false);
+      showLoading && setIsLoading(false);
     } catch (error) {
       setError(error.message);
-      setIsLoading(false);
+      showLoading && setIsLoading(false);
+    }
+  };
+
+  const deleteUser = async (id) => {
+    try {
+      await delUser(id);
+      loadUsers({ showLoading: false });
+      toast.success('Delete user success!');
+    } catch (error) {
+      toast.error(error.message);
     }
   };
 
@@ -36,6 +47,7 @@ export const UserProvider = ({ children }) => {
     error,
     setUsers,
     loadUsers,
+    deleteUser,
   };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

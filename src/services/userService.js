@@ -40,3 +40,23 @@ export const createUser = async (userData) => {
     throw error;
   }
 };
+
+export const deleteUser = async (id) => {
+  const token = localStorage.getItem('authToken');
+  try {
+    const response = await fetch(`${API_BASE_URL}/users/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      },
+    });
+    if (!response.ok) {
+      throw new Error('Failed to delete user');
+    }
+    return;
+  } catch (error) {
+    console.error('Error delete user:', error);
+    throw error;
+  }
+};
