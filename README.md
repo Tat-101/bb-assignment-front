@@ -4,6 +4,8 @@
 
 This repository contains the frontend application for the "BB Assignment". This project is built using React and is designed to provide a user interface for managing users. The application allows users to be added, removed, and deleted, with role-based access control and authentication mechanisms.
 
+You can view a live demo of the application at [https://bb-assignment-front.pages.dev/](https://bb-assignment-front.pages.dev/).
+
 ## Table of Contents
 
 - [Overview](#overview)
