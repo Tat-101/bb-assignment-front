@@ -10,6 +10,12 @@ export const fetchUsers = async () => {
         Authorization: token,
       },
     });
+
+    if (response.status === 401) {
+      localStorage.removeItem('authToken');
+      window.location.href = '/login';
+    }
+
     if (!response.ok) {
       throw new Error('Failed to fetch users');
     }
