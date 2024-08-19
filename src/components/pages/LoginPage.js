@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { authenticate } from '../../services/authService';
 import { useAuth } from '../../context/AuthContext';
+import { Button } from '../atoms';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -71,12 +72,9 @@ const LoginPage = () => {
             </div>
           )}
           <div>
-            <button
-              type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
+            <Button type="submit" variant="primary" className="w-full">
               Sign in
-            </button>
+            </Button>
           </div>
         </form>
       </div>

@@ -8,6 +8,7 @@ const Button = ({
   variant,
   size = 'medium',
   disabled,
+  className = '',
 }) => {
   const baseStyle =
     'font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2';
@@ -22,7 +23,7 @@ const Button = ({
     large: 'px-5 py-3 text-lg',
   };
 
-  const buttonClasses = `${baseStyle} ${variantStyles[variant]} ${sizeStyles[size]} ${
+  const buttonClasses = `${baseStyle} ${variantStyles[variant]} ${sizeStyles[size]} ${className} ${
     disabled ? 'opacity-50 cursor-not-allowed' : ''
   }`;
 
@@ -45,6 +46,7 @@ Button.propTypes = {
   variant: PropTypes.oneOf(['primary', 'secondary', 'danger']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   disabled: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default Button;
